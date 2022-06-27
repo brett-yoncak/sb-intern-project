@@ -5,7 +5,6 @@ import IconBasketball from '../components/icons/IconBasketball.vue';
 import IconFootball from '../components/icons/IconFootball.vue';
 import IconHockey from '../components/icons/IconHockey.vue';
 
-
 const props = defineProps({ allSports: { type: Array, required: true } })
 </script>
 
@@ -45,7 +44,7 @@ const props = defineProps({ allSports: { type: Array, required: true } })
   </div>
 </template>
 
-<style sass>
+<style>
 .container {
   width: 100%;
 }
@@ -54,7 +53,7 @@ const props = defineProps({ allSports: { type: Array, required: true } })
   height: 64px;
   max-width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   overflow: scroll;
 }

@@ -1,8 +1,6 @@
 <script setup>
 import { onMounted, inject, ref } from 'vue'
 import HeaderBar from '../components/HeaderBar.vue';
-import SideBar from '../components/SideBar.vue';
-
 const axios = inject('axios')
 
 // data
@@ -50,42 +48,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="grid-container">
-    <div class="header">
-      <HeaderBar
-        :all-sports="allSports"
-        :name="allSports.name"
-      />
-    </div>
-    <div class="sidebar">
-      <SideBar />
-    </div>
-    <div class="body">
-      body
-    </div>
-  </div>
+  <HeaderBar
+    :all-sports="allSports"
+    :name="allSports.name"
+  />
 </template>
-
-<style scoped>
-.grid-container {
-    display: grid;
-    grid-template-rows: 20% auto;
-    grid-auto-columns: 240px auto;
-    grid-template-areas:
-        '🟨 🟪'
-        '🟨 🟥'
-    ;
-}
-
-.header {
-    grid-area: 🟪;
-}
-
-.sidebar {
-    grid-area: 🟨;
-}
-
-.body {
-    grid-area: 🟥;
-}
-</style>
