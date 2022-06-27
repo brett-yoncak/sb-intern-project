@@ -51,41 +51,46 @@ onMounted(() => {
 
 <template>
   <div class="grid-container">
-    <div class="header">
+    <header class="header">
       <HeaderBar
         :all-sports="allSports"
         :name="allSports.name"
       />
-    </div>
-    <div class="sidebar">
+    </header>
+    <aside class="sidebar">
       <SideBar />
-    </div>
-    <div class="body">
+    </aside>
+    <body class="body">
       body
-    </div>
+    </body>
   </div>
 </template>
 
-<style scoped>
+<style scoped scss>
 .grid-container {
     display: grid;
     grid-template-rows: 20% auto;
     grid-auto-columns: 240px auto;
     grid-template-areas:
-        '🟨 🟪'
-        '🟨 🟥'
+        'sidebar header'
+        'sidebar body'
     ;
 }
 
 .header {
-    grid-area: 🟪;
+    grid-area: header;
 }
 
 .sidebar {
-    grid-area: 🟨;
+    grid-area: sidebar;
 }
 
 .body {
-    grid-area: 🟥;
+    grid-area: body;
+
+    /* ⬇️ placeholder styles */
+    justify-self: center;
+    align-self: center;
+    color: #ffff;
 }
 </style>

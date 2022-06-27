@@ -1,5 +1,10 @@
 <script setup>
 import LogoBlock from '../components/icons/LogoBlock.vue';
+import IconEvents from '../components/icons/IconEvents.vue';
+import IconHome from '../components/icons/IconHome.vue';
+import IconPrefs from '../components/icons/IconPrefs.vue';
+import IconSports from '../components/icons/IconSports.vue';
+import IconTeams from '../components/icons/IconTeams.vue';
 
 let pages = ['Home', 'Sports', 'Events', 'Teams', 'Preferences' ]
 </script>
@@ -15,6 +20,31 @@ let pages = ['Home', 'Sports', 'Events', 'Teams', 'Preferences' ]
         :key="page.id"
         class="page"
       >
+        <IconHome
+          v-if="page === 'Home'"
+          class="icon"
+        />
+        
+        <IconSports
+          v-if="page === 'Sports'"
+          class="icon"
+        />
+        
+        <IconEvents
+          v-if="page === 'Events'"
+          class="icon"
+        />
+
+        <IconPrefs
+          v-if="page === 'Preferences'"
+          class="icon"
+        />
+
+        <IconTeams
+          v-if="page === 'Teams'"
+          class="icon"
+        />
+        
         <p>{{ page }}</p>
       </div>
     </div>
@@ -41,12 +71,18 @@ let pages = ['Home', 'Sports', 'Events', 'Teams', 'Preferences' ]
     background-color: #182948;
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
 }
+
 .pages-wrapper {
     color: white;
 }
 
 .logo-block {
     height: 100;
+}
+
+.icon {
+    padding: 24px
 }
 </style>

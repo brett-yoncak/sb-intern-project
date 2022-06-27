@@ -45,7 +45,7 @@ const props = defineProps({ allSports: { type: Array, required: true } })
   </div>
 </template>
 
-<style sass>
+<style scoped scss>
 .container {
   width: 100%;
 }

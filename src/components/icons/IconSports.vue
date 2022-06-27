@@ -1,0 +1,45 @@
+<template>
+  <svg
+    data-v-166a0c8e=""
+    width="24px"
+    height="24px"
+    viewBox="0 0 24 24"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    aria-hidden="true"
+    class="v-icon notranslate v-icon--is-component theme--light expanded-icon"
+  ><title>96BDC84A-FDAB-4C91-ADD6-1A8894D6C479@1.00x</title><desc>Created with sketchtool.</desc><g
+    id="Symbols"
+    stroke="none"
+    stroke-width="1"
+    fill="none"
+    fill-rule="evenodd"
+    opacity="0.5"
+  ><g
+    id="navigation/desktop/expanded"
+    transform="translate(-16.000000, -114.000000)"
+    fill="#FFFFFF"
+    fill-rule="nonzero"
+  ><g
+    id="feature-areas"
+    transform="translate(16.000000, 82.000000)"
+  ><g id="feature-area-icons"><g
+    id="icon/24/tab/categories"
+    transform="translate(0.000000, 32.000000)"
+  ><path
+    id="Combined-Shape"
+    d="M6.27933333,8.67066667 L6.27933333,9.582 L3.08666667,14.1666667 L6.366,14.1666667
+              L6.366,15.3333333 L1.40733333,15.3333333 L1.40733333,14.4173333 L4.602,9.83733333
+              L1.494,9.83733333 L1.494,8.67066667 L6.27933333,8.67066667 Z M12,0.666666667
+              L11.9996667,12.9416667 L13.942809,11 L14.8856181,11.942809 L11.7475469,15.0808802
+              C11.4871974,15.3412298 11.0650874,15.3412298 10.8047379,15.0808802
+              L7.66666667,11.942809 L8.60947571,11 L10.6666667,13.0566667 L10.6666667,0.666666667
+              L12,0.666666667 Z M4.746,0.666666667 L7.10666667,7.33333333 L5.584,7.33333333
+              L5.10133333,5.74733333 L2.672,5.74733333 L2.18933333,7.33333333
+              L0.666666667,7.33333333 L3.02,0.666666667 L4.746,0.666666667 Z M3.88666667,1.678
+              C3.78666667,2.06688889 3.49955556,3.02844444 3.02533333,4.56266667
+              L4.764,4.56266667 C4.31955556,3.12533333 4.06822222,2.31266667 4.01,2.12466667
+              C3.95333333,1.93333333 3.91333333,1.78733333 3.88666667,1.678 Z"
+  /></g></g></g></g></g></svg>
+</template>
