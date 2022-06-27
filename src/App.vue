@@ -7,7 +7,12 @@ import { RouterView } from 'vue-router';
 </template>
 
 <style>
+html {
+  height: 100;
+}
+
 body {
+  height: 100;
   background-color: #101c33;
 }
 </style>
