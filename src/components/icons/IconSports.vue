@@ -15,18 +15,15 @@
     stroke-width="1"
     fill="none"
     fill-rule="evenodd"
-    opacity="0.5"
+    opacity="0.6"
   ><g
     id="navigation/desktop/expanded"
-    transform="translate(-16.000000, -114.000000)"
     fill="#FFFFFF"
     fill-rule="nonzero"
   ><g
     id="feature-areas"
-    transform="translate(16.000000, 82.000000)"
   ><g id="feature-area-icons"><g
     id="icon/24/tab/categories"
-    transform="translate(0.000000, 32.000000)"
   ><path
     id="Combined-Shape"
     d="M6.27933333,8.67066667 L6.27933333,9.582 L3.08666667,14.1666667 L6.366,14.1666667

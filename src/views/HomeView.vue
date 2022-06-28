@@ -60,9 +60,9 @@ onMounted(() => {
     <aside class="sidebar">
       <SideBar />
     </aside>
-    <body class="body">
+    <main class="body">
       body
-    </body>
+    </main>
   </div>
 </template>
 
@@ -88,9 +88,11 @@ onMounted(() => {
 .body {
     grid-area: body;
 
-    /* ⬇️ placeholder styles */
-    justify-self: center;
-    align-self: center;
+    /* ⬇ placeholder styles */
+    display: flex;
     color: #ffff;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 </style>

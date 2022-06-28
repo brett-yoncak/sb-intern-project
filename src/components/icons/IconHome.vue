@@ -2,11 +2,12 @@
   <svg
     data-v-166a0c8e=""
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
+    width="18"
+    height="18"
     viewBox="0 0 24 24"
     aria-hidden="true"
     class="v-icon notranslate v-icon--is-component theme--light expanded-icon"
+    opacity="0.6"
   ><g fill="#FFF"><path
     d="M11.99 0l-.3.914h-.964l.78.568-.296.914.78-.563.78.563-.3-.914.78-.568h-.964L11.99 0zM8.837
         1.365l-.93.25.902.346-.05.959.602-.747.902.346-.524-.808.608-.747-.93.245-.53-.802-.05.958zm5.728
