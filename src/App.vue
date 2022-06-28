@@ -12,6 +12,7 @@ html {
   width: 100%;
   padding: 0px;
   margin: 0px;
+  box-sizing: border-box;
 }
 
 body {

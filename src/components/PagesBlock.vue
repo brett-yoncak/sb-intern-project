@@ -4,6 +4,7 @@ import IconHome from '../components/icons/IconHome.vue';
 import IconPrefs from '../components/icons/IconPrefs.vue';
 import IconSports from '../components/icons/IconSports.vue';
 import IconTeams from '../components/icons/IconTeams.vue';
+import HomeBlock from '../components/HomeBlock.vue';
 
 const icons = [ 
   { name: 'Home', comp: IconHome },
@@ -16,45 +17,40 @@ const icons = [
 </script>
 
 <template>
-  <div class="container">
-    <nav class="pages-wrapper">
-      <button
-        v-for="icon in icons"
-        :key="icon.name"
-        class="page"
-      >
-        <aside class="icon-wrapper">
-          <component
-            :is="icon.comp"
-            :class="'icon'"
-          />
-        </aside>
+  <nav class="pages-wrapper">
+    <div>
+      <HomeBlock />
+    </div>
 
-        <p class="page-text">
-          {{ icon.name }}
-        </p>
-      </button>
-    </nav>
-  </div>
+    <button
+      v-for="icon in icons"
+      :key="icon.name"
+      class="page"
+    >
+      <aside class="icon-wrapper">
+        <component
+          :is="icon.comp"
+          :class="'icon'"
+        />
+      </aside>
+
+      <p class="page-text">
+        {{ icon.name }}
+      </p>
+    </button>
+  </nav>
 </template>
 
 <style lang="scss" scoped>
-.container {
-    display: flex;
-    flex-direction: column;
-}
-
 .pages-wrapper {    
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     row-gap: 8px;
+    background-color: #182948;
     color: white;
-    padding-left: 16px;
-    padding-top: 8px;
-    background-color: #182948; 
-    height: 100vh;
     overflow: hidden;
+    height: 100%;
 }
 
 button {
@@ -82,15 +78,15 @@ button {
 }
 
 .page-text {
-      margin-left: 16px;
+    margin-left: 16px;
 }
 
 .icon-wrapper {
-  height: 18px;
-  width: 18px;
+    height: 18px;
+    width: 18px;
 }
 
 .icon {
-  display: inline-flex;
+    display: inline-flex;
 }
 </style>

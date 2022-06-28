@@ -5,7 +5,6 @@ import IconBasketball from '../components/icons/IconBasketball.vue';
 import IconFootball from '../components/icons/IconFootball.vue';
 import IconHockey from '../components/icons/IconHockey.vue';
 
-
 const props = defineProps({ allSports: { type: Array, required: true } })
 </script>
 

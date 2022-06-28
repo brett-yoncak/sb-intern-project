@@ -21,6 +21,7 @@ import PagesBlock from '../components/PagesBlock.vue';
 .container {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .logo-block {
@@ -29,8 +30,7 @@ import PagesBlock from '../components/PagesBlock.vue';
     align-items: center;
     justify-content: center;
 }
-
-.logo-block {
-        height: 100;
-    }
+.pages-block {
+    height: 100%;
+}
 </style>
