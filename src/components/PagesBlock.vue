@@ -61,10 +61,14 @@ let pages = ['Home', 'Sports', 'Events', 'Teams', 'Preferences' ]
 .pages-wrapper {    
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    row-gap: 8px;
     color: white;
     padding-left: 16px;
-    background-color: #182948;
+    padding-top: 8px;
+    background-color: #182948; 
+    height: 100vh;
+    overflow: hidden;
 }
 
 button{
@@ -75,11 +79,9 @@ button{
   border: none;
   padding-left: 16px;
   margin-left: -16px;
-  transition: background-color ease-in-out .3;
 }
 
 button:hover {
-  transition: background-color ease-in-out .3;
   color: #ffff;
   opacity: 100%;
 }
