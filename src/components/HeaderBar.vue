@@ -11,7 +11,7 @@ const props = defineProps({ allSports: { type: Array, required: true } })
 
 <template>
   <div class="container">
-    <div class="sports-wrapper">
+    <nav class="sports-wrapper">
       <button
         v-for="sport in allSports" 
         :key="sport.key"
@@ -41,11 +41,11 @@ const props = defineProps({ allSports: { type: Array, required: true } })
           {{ sport.key.toUpperCase() }}
         </p>
       </button>
-    </div>
+    </nav>
   </div>
 </template>
 
-<style scoped scss>
+<style lang="scss" scoped >
 .container {
   width: 100%;
 }

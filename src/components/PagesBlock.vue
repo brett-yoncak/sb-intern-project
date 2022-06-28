@@ -43,6 +43,7 @@ let pages = ['Home', 'Sports', 'Events', 'Teams', 'Preferences' ]
             class="icon"
           />
         </aside>
+
         <p class="page-text">
           {{ page }}
         </p>
@@ -51,7 +52,7 @@ let pages = ['Home', 'Sports', 'Events', 'Teams', 'Preferences' ]
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .container {
     display: flex;
     flex-direction: column;
@@ -66,20 +67,21 @@ let pages = ['Home', 'Sports', 'Events', 'Teams', 'Preferences' ]
     background-color: #182948;
 }
 
-
 button{
   height: 48px;
   background-color: #182948;
   color: #a7a7a7;
   cursor: pointer;
   border: none;
+  padding-left: 16px;
+  margin-left: -16px;
   transition: background-color ease-in-out .3;
 }
 
 button:hover {
   transition: background-color ease-in-out .3;
-  background-color: #2b3648;
   color: #ffff;
+  opacity: 100%;
 }
 
 .page {
@@ -104,5 +106,9 @@ button:hover {
   display: inline-flex;
   align-self: center;
   justify-self: center;
+}
+
+.icon:hover{
+opacity: 100%;
 }
 </style>

@@ -5,18 +5,19 @@ import PagesBlock from '../components/PagesBlock.vue';
 
 <template>
   <div class="container">
-    <main class="pages-wrapper">
+    <div class="pages-wrapper">
       <header class="logo-block">
         <LogoBlock />
       </header>
-      <div class="pages-block">
+
+      <main class="pages-block">
         <PagesBlock />
-      </div>
-    </main>
+      </main>
+    </div>
   </div>
 </template>
 
-<style scoped scss>
+<style lang="scss" scoped>
 .container {
     display: flex;
     flex-direction: column;

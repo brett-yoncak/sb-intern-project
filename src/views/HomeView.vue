@@ -57,16 +57,18 @@ onMounted(() => {
         :name="allSports.name"
       />
     </header>
+
     <aside class="sidebar">
       <SideBar />
     </aside>
-    <main class="body">
+    
+    <article class="body">
       body
-    </main>
+    </article>
   </div>
 </template>
 
-<style scoped scss>
+<style lang="scss" scoped>
 .grid-container {
     display: grid;
     grid-template-rows: 20% auto;
@@ -88,7 +90,7 @@ onMounted(() => {
 .body {
     grid-area: body;
 
-    /* ⬇ placeholder styles */
+    /* placeholder styles */
     display: flex;
     color: #ffff;
     align-content: center;

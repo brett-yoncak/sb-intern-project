@@ -6,7 +6,6 @@
     height="18"
     viewBox="0 0 24 24"
     aria-hidden="true"
-    class="v-icon notranslate v-icon--is-component theme--light expanded-icon"
     opacity="0.6"
   ><g fill="#FFF"><path
     d="M11.99 0l-.3.914h-.964l.78.568-.296.914.78-.563.78.563-.3-.914.78-.568h-.964L11.99 0zM8.837
