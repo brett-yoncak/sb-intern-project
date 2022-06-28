@@ -75,12 +75,12 @@ button{
   background-color: #101c33;
   color: #a7a7a7;
   cursor: pointer;
-}
-
-button:hover {
-  transition: background-color ease-in-out .3;
-  background-color: #2b3648;
-  color: #ffff;
+  
+  &:hover {
+    transition: background-color ease-in-out .3;
+    background-color: #2b3648;
+    color: #ffff;
+  }
 }
 
 .button-text {

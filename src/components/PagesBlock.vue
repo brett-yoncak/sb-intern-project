@@ -5,7 +5,13 @@ import IconPrefs from '../components/icons/IconPrefs.vue';
 import IconSports from '../components/icons/IconSports.vue';
 import IconTeams from '../components/icons/IconTeams.vue';
 
-let pages = ['Home', 'Sports', 'Events', 'Teams', 'Preferences' ]
+const icons = [ 
+  { name: 'Home', comp: IconHome },
+  { name: 'Sports', comp: IconSports },
+  { name: 'Events', comp: IconEvents },
+  { name: 'Teams', comp: IconTeams },
+  { name: 'Preferences', comp: IconPrefs }
+ ] 
 
 </script>
 
@@ -13,39 +19,19 @@ let pages = ['Home', 'Sports', 'Events', 'Teams', 'Preferences' ]
   <div class="container">
     <nav class="pages-wrapper">
       <button
-        v-for="page in pages"
-        :key="page.id"
+        v-for="icon in icons"
+        :key="icon.name"
         class="page"
       >
         <aside class="icon-wrapper">
-          <IconHome
-            v-if="page === 'Home'"
-            class="icon"
-          />
-        
-          <IconSports
-            v-if="page === 'Sports'"
-            class="icon"
-          />
-        
-          <IconEvents
-            v-if="page === 'Events'"
-            class="icon"
-          />
-
-          <IconPrefs
-            v-if="page === 'Preferences'"
-            class="icon"
-          />
-
-          <IconTeams
-            v-if="page === 'Teams'"
-            class="icon"
+          <component
+            :is="icon.comp"
+            :class="'icon'"
           />
         </aside>
 
         <p class="page-text">
-          {{ page }}
+          {{ icon.name }}
         </p>
       </button>
     </nav>
@@ -71,19 +57,19 @@ let pages = ['Home', 'Sports', 'Events', 'Teams', 'Preferences' ]
     overflow: hidden;
 }
 
-button{
-  height: 48px;
-  background-color: #182948;
-  color: #a7a7a7;
-  cursor: pointer;
-  border: none;
-  padding-left: 16px;
-  margin-left: -16px;
-}
-
-button:hover {
-  color: #ffff;
-  opacity: 100%;
+button {
+    height: 48px;
+    background-color: #182948;
+    color: #ffff;
+    opacity: 60%;    
+    cursor: pointer;
+    border: none;
+    padding-left: 16px;
+    margin-left: -16px;
+  
+  &:hover {
+    opacity: 100%;
+  }
 }
 
 .page {
@@ -106,11 +92,5 @@ button:hover {
 
 .icon {
   display: inline-flex;
-  align-self: center;
-  justify-self: center;
-}
-
-.icon:hover{
-opacity: 100%;
 }
 </style>

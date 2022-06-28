@@ -7,7 +7,6 @@
     height="28"
     viewBox="0 0 24 24"
     aria-hidden="true"
-    class="v-icon notranslate v-icon--is-component theme--light"
   ><g
     fill="none"
     fill-rule="evenodd"

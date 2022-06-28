@@ -8,14 +8,12 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     aria-hidden="true"
-    class="v-icon notranslate v-icon--is-component theme--light expanded-icon"
   ><title>96BDC84A-FDAB-4C91-ADD6-1A8894D6C479@1.00x</title><desc>Created with sketchtool.</desc><g
     id="Symbols"
     stroke="none"
     stroke-width="1"
     fill="none"
     fill-rule="evenodd"
-    opacity="0.6"
   ><g
     id="navigation/desktop/expanded"
     fill="#FFFFFF"
