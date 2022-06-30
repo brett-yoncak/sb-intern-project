@@ -32,7 +32,6 @@ const sidebarButtons = markRaw([
     justify-content: flex-start;
     row-gap: 8px;
     color: white;
-    flex-basis: 1;
 }
 
 .page {

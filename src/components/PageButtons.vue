@@ -9,8 +9,8 @@ const props = defineProps({ buttons: { type: Array, required: true } })
 <template>
   <div class="container">
     <button
-      v-for="(button) in buttons"
-      :key="button.id"
+      v-for="(button, index) in buttons"
+      :key="index"
       class="page"
     >
       <aside class="icon-wrapper">
