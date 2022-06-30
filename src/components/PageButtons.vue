@@ -1,16 +1,24 @@
 <script setup>
-import IconHome from '../components/icons/IconHome.vue';
+import IconHome from './icons/IconHome.vue';
+
+const props = defineProps({ buttons: { type: Array, required: true } })
+
+
 </script>
 
 <template>
   <div class="container">
-    <button class="page">
+    <button
+      v-for="(button) in buttons"
+      :key="button.id"
+      class="page"
+    >
       <aside class="icon-wrapper">
-        <IconHome />
+        <component :is="button.comp" />
       </aside>
 
       <span class="page-text">
-        Home
+        {{ button.name }}
       </span>
     </button>
   </div>
@@ -20,6 +28,7 @@ import IconHome from '../components/icons/IconHome.vue';
 
 .container {
     display: flex;
+    flex-direction: column;
 }
 
 button {

@@ -10,9 +10,9 @@ import PagesBlock from '../components/PagesBlock.vue';
         <LogoBlock />
       </header>
 
-      <main class="pages-block">
+      <nav class="pages-block">
         <PagesBlock />
-      </main>
+      </nav>
     </div>
   </div>
 </template>
@@ -21,16 +21,17 @@ import PagesBlock from '../components/PagesBlock.vue';
 .container {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    background-color: #182948;
+    height: 100vh;
 }
 
 .logo-block {
     display: flex;
-    height: 64px;
+    width: 217px;
+    padding: 16px;
     align-items: center;
     justify-content: center;
+    background-color: #101c33;
 }
-.pages-block {
-    height: 100%;
-}
+
 </style>

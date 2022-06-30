@@ -69,21 +69,23 @@ const props = defineProps({ allSports: { type: Array, required: true } })
 }
 
 button{
-  height: 64px;
+  padding: 16px;
   transition: background-color ease-in-out .3s;
   background-color: #101c33;
-  color: #a7a7a7;
+  transition: opacity ease-in-out .2s;
+  color: #ffff;
+  opacity: 64%;
   cursor: pointer;
   
   &:hover {
-    transition: background-color ease-in-out .3;
+    transition: background-color ease-in-out .3s, opacity ease-in-out .2s;
     background-color: #2b3648;
     color: #ffff;
+    opacity: 100%;
   }
 }
 
 .button-text {
-  transition: color ease-in-out .3;
   transform: skew(30deg);;
   font-size: 16px;
 }
