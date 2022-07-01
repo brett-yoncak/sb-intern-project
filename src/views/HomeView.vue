@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, inject, ref } from 'vue'
+import { inject, onMounted, ref } from 'vue'
 import HeaderBar from '../components/HeaderBar.vue';
 import SideBar from '../components/SideBar.vue';
 
@@ -62,8 +62,8 @@ onMounted(() => {
       <SideBar />
     </aside>
     
-    <article class="body">
-      body
+    <article class="content">
+      Content goes here.
     </article>
   </div>
 </template>
@@ -71,12 +71,13 @@ onMounted(() => {
 <style lang="scss" scoped>
 .grid-container {
     display: grid;
-    grid-template-rows: 20% auto;
+    grid-template-rows: 64px auto;
     grid-auto-columns: 240px auto;
     grid-template-areas:
         'sidebar header'
-        'sidebar body'
+        'sidebar content'
     ;
+    height: 100%;
 }
 
 .header {
@@ -85,16 +86,14 @@ onMounted(() => {
 
 .sidebar {
     grid-area: sidebar;
+    overflow-y: hidden;
 }
 
-.body {
-    grid-area: body;
-
+.content {
+    height: 100vh;
+    grid-area: content;
+    overflow-y: scroll;
     /* placeholder styles */
-    display: flex;
     color: #ffff;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
 }
 </style>

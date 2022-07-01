@@ -1,16 +1,10 @@
 <script setup>
-import IconHome from './icons/IconHome.vue';
-
-const props = defineProps({ buttons: { type: Array, required: true } })
-
-
+const props = defineProps({ button: { type: Object, required: true } })
 </script>
 
 <template>
   <div class="container">
     <button
-      v-for="(button, index) in buttons"
-      :key="index"
       class="page"
     >
       <aside class="icon-wrapper">
@@ -25,12 +19,6 @@ const props = defineProps({ buttons: { type: Array, required: true } })
 </template>
 
 <style lang="scss" scoped>
-
-.container {
-    display: flex;
-    flex-direction: column;
-}
-
 button {
     background-color: transparent;
     color: #ffff;
@@ -44,14 +32,15 @@ button {
 }
 
 .page {
-    padding-top: 16px;
-    padding-bottom: 16px;
     display: flex;
     width: 100%;
-    justify-content: left;
+    padding: {
+      top: 16px;
+      bottom: 16px;
+      left: 16px;
+    }
     align-items: center;
     font-size: 16px;
-    padding-left: 16px;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
 }
@@ -63,9 +52,5 @@ button {
 .icon-wrapper {
     height: 18px;
     width: 18px;
-}
-
-.icon {
-    display: inline-flex;
 }
 </style>

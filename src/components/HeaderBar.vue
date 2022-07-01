@@ -36,9 +36,9 @@ const props = defineProps({ allSports: { type: Array, required: true } })
           class="icon"
         />
       
-        <p class="button-text">
+        <span class="button-text">
           {{ sport.key.toUpperCase() }}
-        </p>
+        </span>
       </button>
     </nav>
   </div>
@@ -50,49 +50,47 @@ const props = defineProps({ allSports: { type: Array, required: true } })
 }
 
 .sports-wrapper {
-  height: 64px;
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: scroll;
+    height: 64px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
 }
 
 .sport {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 180px;
-  transform: skew(-30deg);
-  outline: none;
-  border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 180px;
+    max-height: 64px;
+    outline: none;
+    border: none;
+    transform: skew(-30deg);
 }
 
 button{
-  padding: 16px;
-  transition: background-color ease-in-out .3s;
-  background-color: #101c33;
-  transition: opacity ease-in-out .2s;
-  color: #ffff;
-  opacity: 64%;
-  cursor: pointer;
+    padding: 24px;
+    transition: background-color ease-in-out .3s;
+    background-color: #101c33;
+    cursor: pointer;
   
-  &:hover {
-    transition: background-color ease-in-out .3s, opacity ease-in-out .2s;
-    background-color: #2b3648;
-    color: #ffff;
-    opacity: 100%;
-  }
+    &:hover {
+      transition: background-color ease-in-out .3s;
+      background-color: #2b3648;
+      color: #ffff;
+    }
 }
 
 .button-text {
-  transform: skew(30deg);;
-  font-size: 16px;
+    transform: skew(30deg);;
+    font-size: 16px;
+    color: #ffff;
 }
 
 .icon {
-  min-height: 16px;
-  margin-right: 16px;
-  transform: skew(30deg);
+    min-height: 16px;
+    margin-right: 16px;
+    transform: skew(30deg);
 }
 </style>
