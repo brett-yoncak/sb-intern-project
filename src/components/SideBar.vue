@@ -18,28 +18,30 @@ const sidebarButtons = ([
 
 <template>
   <div class="container">
-    <div class="pages-wrapper">
-      <header class="logo-block">
-        <LogoBlock />
-      </header>
+    <header class="logo-block">
+      <LogoBlock />
+    </header>
 
-      <nav class="pages-block">
-        <PageButton
-          v-for="(button, index) in sidebarButtons"
-          :key="index"
-          :button="button"
-        />
-      </nav>
-    </div>
+    <nav class="pages-block">
+      <PageButton
+        v-for="(button, index) in sidebarButtons"
+        :key="index"
+        :button="button"
+      />
+    </nav>
   </div>
 </template>
 
 <style lang="scss" scoped>
+
+.container {
+  height: 100%;
+}
 .logo-block {
   display: flex;
-  padding: 16px;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
+  padding: 16px;
   background-color: #101c33;
 }
 </style>

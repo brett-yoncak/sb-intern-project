@@ -46,12 +46,10 @@ const props = defineProps({ allSports: { type: Array, required: true } })
 
 <style lang="scss" scoped >
 .container {
-  width: 100%;
+  height: 100%;
 }
-
 .sports-wrapper {
-  height: 64px;
-  max-width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,18 +57,18 @@ const props = defineProps({ allSports: { type: Array, required: true } })
 }
 
 .sport {
+  height: 100%;
+  min-width: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 180px;
-  max-height: 64px;
   outline: none;
   border: none;
   transform: skew(-30deg);
+  padding: 24px;
 }
 
 button{
-  padding: 24px;
   transition: background-color ease-in-out .3s;
   background-color: #101c33;
   cursor: pointer;

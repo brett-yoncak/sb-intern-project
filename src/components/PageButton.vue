@@ -34,11 +34,7 @@ button {
 .page {
   display: flex;
   width: 100%;
-  padding: {
-    top: 16px;
-    bottom: 16px;
-    left: 16px;
-  }
+  padding: 16px;
   align-items: center;
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
