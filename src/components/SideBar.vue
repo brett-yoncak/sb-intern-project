@@ -7,13 +7,13 @@ import IconTeams from '../components/icons/IconTeams.vue';
 import LogoBlock from '../components/icons/LogoBlock.vue';
 import PageButton from '../components/PageButton.vue';
 
-const sidebarButtons = ([ 
+const sidebarButtons = [ 
   { name: 'Home', comp: IconHome },
   { name: 'Sports', comp: IconSports },
   { name: 'Events', comp: IconEvents },
   { name: 'Teams', comp: IconTeams },
   { name: 'Preferences', comp: IconPrefs }
- ]) 
+ ] 
 </script>
 
 <template>

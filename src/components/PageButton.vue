@@ -33,9 +33,9 @@ button {
 
 .page {
   display: flex;
+  align-items: center;
   width: 100%;
   padding: 16px;
-  align-items: center;
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
