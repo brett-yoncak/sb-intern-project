@@ -61,11 +61,7 @@ onMounted(() => {
       <SideBar />
     </aside>
     
-    <article class="content">
-      <div class="test">
-        hola
-      </div>
-    </article>
+    <article class="content" />
   </div>
 </template>
 
@@ -76,8 +72,8 @@ onMounted(() => {
   grid-template-rows: 64px auto;
   grid-auto-columns: 240px auto;
   grid-template-areas:
-  'sidebar header'
-  'sidebar content'
+    'sidebar header'
+    'sidebar content'
   ;
 }
 

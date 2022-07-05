@@ -4,9 +4,7 @@ const props = defineProps({ button: { type: Object, required: true } })
 
 <template>
   <div class="container">
-    <button
-      class="page"
-    >
+    <button class="page">
       <aside class="icon-wrapper">
         <component :is="button.comp" />
       </aside>
@@ -21,13 +19,14 @@ const props = defineProps({ button: { type: Object, required: true } })
 <style lang="scss" scoped>
 button {
   background-color: transparent;
-  color: #ffff;
-  opacity: 60%;    
+  color: rgb(160, 160, 160);
+  fill:rgb(160, 160, 160);
   cursor: pointer;
   border: none;
     
   &:hover {
-    opacity: 100%;
+    fill: #ffff;
+    color: #ffff;
   }
 }
 

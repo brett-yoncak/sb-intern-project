@@ -12,11 +12,9 @@
     id="Symbols"
     stroke="none"
     stroke-width="1"
-    fill="none"
     fill-rule="evenodd"
   ><g
     id="navigation/desktop/expanded"
-    fill="#FFFFFF"
     fill-rule="nonzero"
   ><g
     id="feature-areas"
