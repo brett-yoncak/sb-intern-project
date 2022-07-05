@@ -50,47 +50,47 @@ const props = defineProps({ allSports: { type: Array, required: true } })
 }
 
 .sports-wrapper {
-    height: 64px;
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: scroll;
+  height: 64px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: scroll;
 }
 
 .sport {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 180px;
-    max-height: 64px;
-    outline: none;
-    border: none;
-    transform: skew(-30deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 180px;
+  max-height: 64px;
+  outline: none;
+  border: none;
+  transform: skew(-30deg);
 }
 
 button{
-    padding: 24px;
-    transition: background-color ease-in-out .3s;
-    background-color: #101c33;
-    cursor: pointer;
+  padding: 24px;
+  transition: background-color ease-in-out .3s;
+  background-color: #101c33;
+  cursor: pointer;
   
-    &:hover {
-      transition: background-color ease-in-out .3s;
-      background-color: #2b3648;
-      color: #ffff;
-    }
+  &:hover {
+    transition: background-color ease-in-out .3s;
+    background-color: #2b3648;
+    color: #ffff;
+  }
 }
 
 .button-text {
-    transform: skew(30deg);;
-    font-size: 16px;
-    color: #ffff;
+  transform: skew(30deg);;
+  font-size: 16px;
+  color: #ffff;
 }
 
 .icon {
-    min-height: 16px;
-    margin-right: 16px;
-    transform: skew(30deg);
+  min-height: 16px;
+  margin-right: 16px;
+  transform: skew(30deg);
 }
 </style>

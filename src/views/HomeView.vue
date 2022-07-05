@@ -57,43 +57,45 @@ onMounted(() => {
         :name="allSports.name"
       />
     </header>
-
     <aside class="sidebar">
       <SideBar />
     </aside>
     
     <article class="content">
-      Content goes here.
+      <div class="test">
+        hola
+      </div>
     </article>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .grid-container {
-    display: grid;
-    grid-template-rows: 64px auto;
-    grid-auto-columns: 240px auto;
-    grid-template-areas:
-        'sidebar header'
-        'sidebar content'
-    ;
-    height: 100%;
+  display: grid;
+  height: 100%;
+  grid-template-rows: 64px auto;
+  grid-auto-columns: 240px auto;
+  grid-template-areas:
+  'sidebar header'
+  'sidebar content'
+  ;
 }
 
 .header {
-    grid-area: header;
+  grid-area: header;
+  overflow-x: scroll;
 }
 
 .sidebar {
-    grid-area: sidebar;
-    overflow-y: hidden;
+  grid-area: sidebar;
+  overflow-y: scroll;
+  background-color: #182948;
 }
 
 .content {
-    height: 100vh;
-    grid-area: content;
-    overflow-y: scroll;
-    /* placeholder styles */
-    color: #ffff;
+  grid-area: content;
+  overflow-y: scroll;
+  /* placeholder styles */
+  color: #ffff;
 }
 </style>

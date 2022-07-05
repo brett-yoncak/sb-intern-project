@@ -35,20 +35,11 @@ const sidebarButtons = ([
 </template>
 
 <style lang="scss" scoped>
-.container {
-    display: flex;
-    flex-direction: column;
-    background-color: #182948;
-    flex-grow: 1!important;
-    height: 100%;
-}
-
 .logo-block {
-    display: flex;
-    max-width: 240px;
-    padding: 16px;
-    align-items: center;
-    justify-content: center;
-    background-color: #101c33;
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  justify-content: center;
+  background-color: #101c33;
 }
 </style>
