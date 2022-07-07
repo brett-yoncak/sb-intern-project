@@ -1,10 +1,26 @@
-<script>
-const props = defineProps({ allSports: { type: Array, required: true } }, { bets: {type: Array, required: true }})</script>
+<script setup>
+import EventCard from '../components/EventCard.vue';
+const props = defineProps({ sports: { type: Array, required: true }, events: { type: Array, required: true }, teams: { type: Array, required: true} })
+</script>
 
 <template>
-  <div class="container">
-    <article class="sports">
-      <Sports />
-    </article>
-  </div>
+  <article class="sports-wrapper">
+    <div
+      v-for="sport in sports"
+      :key="sport.key"
+      class="sport"
+    >
+      <header>
+        <span> {{ sport.key.toUpperCase() }}</span>
+      </header>
+
+      <article>
+        <EventCard
+          :sport="sport" 
+          :events="events" 
+          :teams="teams" 
+        />
+      </article>
+    </div>
+  </article>
 </template>
