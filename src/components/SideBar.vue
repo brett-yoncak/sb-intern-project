@@ -1,52 +1,47 @@
 <script setup>
+import IconEvents from '../components/icons/IconEvents.vue';
+import IconHome from '../components/icons/IconHome.vue';
+import IconPrefs from '../components/icons/IconPrefs.vue';
+import IconSports from '../components/icons/IconSports.vue';
+import IconTeams from '../components/icons/IconTeams.vue';
 import LogoBlock from '../components/icons/LogoBlock.vue';
+import PageButton from '../components/PageButton.vue';
 
-let pages = ['Home', 'Sports', 'Events', 'Teams', 'Preferences' ]
+const sidebarButtons = [ 
+  { name: 'Home', comp: IconHome },
+  { name: 'Sports', comp: IconSports },
+  { name: 'Events', comp: IconEvents },
+  { name: 'Teams', comp: IconTeams },
+  { name: 'Preferences', comp: IconPrefs }
+ ] 
 </script>
 
 <template>
   <div class="container">
-    <div class="pages-wrapper">
-      <div class="logo-block">
-        <LogoBlock />
-      </div>
-      <div
-        v-for="page in pages"
-        :key="page.id"
-        class="page"
-      >
-        <p>{{ page }}</p>
-      </div>
-    </div>
+    <header class="logo-block">
+      <LogoBlock />
+    </header>
+
+    <nav class="pages-block">
+      <PageButton
+        v-for="(button, index) in sidebarButtons"
+        :key="index"
+        :button="button"
+      />
+    </nav>
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+
 .container {
-    display: flex;
-    flex-direction: column;
+  height: 100%;
 }
-
 .logo-block {
-    display: flex;
-    height: 64px;
-    align-items: center;
-    justify-content: center;
-}
-
-.page {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: #182948;
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.pages-wrapper {
-    color: white;
-}
-
-.logo-block {
-    height: 100;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 16px;
+  background-color: #101c33;
 }
 </style>

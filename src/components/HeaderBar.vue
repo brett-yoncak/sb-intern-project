@@ -5,13 +5,12 @@ import IconBasketball from '../components/icons/IconBasketball.vue';
 import IconFootball from '../components/icons/IconFootball.vue';
 import IconHockey from '../components/icons/IconHockey.vue';
 
-
 const props = defineProps({ allSports: { type: Array, required: true } })
 </script>
 
 <template>
   <div class="container">
-    <div class="sports-wrapper">
+    <nav class="sports-wrapper">
       <button
         v-for="sport in allSports" 
         :key="sport.key"
@@ -37,56 +36,53 @@ const props = defineProps({ allSports: { type: Array, required: true } })
           class="icon"
         />
       
-        <p class="button-text">
+        <span class="button-text">
           {{ sport.key.toUpperCase() }}
-        </p>
+        </span>
       </button>
-    </div>
+    </nav>
   </div>
 </template>
 
-<style sass>
+<style lang="scss" scoped >
 .container {
-  width: 100%;
+  height: 100%;
 }
-
 .sports-wrapper {
-  height: 64px;
-  max-width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: scroll;
 }
 
 .sport {
+  height: 100%;
+  min-width: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 180px;
-  transform: skew(-30deg);
   outline: none;
   border: none;
+  transform: skew(-30deg);
+  padding: 24px;
 }
 
 button{
-  height: 64px;
   transition: background-color ease-in-out .3s;
   background-color: #101c33;
-  color: #a7a7a7;
   cursor: pointer;
-}
-
-button:hover {
-  transition: background-color ease-in-out .3;
-  background-color: #2b3648;
-  color: #ffff;
+  
+  &:hover {
+    transition: background-color ease-in-out .3s;
+    background-color: #2b3648;
+    color: #ffff;
+  }
 }
 
 .button-text {
-  transition: color ease-in-out .3;
   transform: skew(30deg);;
   font-size: 16px;
+  color: #ffff;
 }
 
 .icon {

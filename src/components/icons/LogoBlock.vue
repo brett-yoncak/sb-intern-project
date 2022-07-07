@@ -8,7 +8,6 @@
     height="32"
     viewBox="0 0 217 32"
     aria-hidden="true"
-    class="v-icon notranslate logo v-icon--is-component theme--light"
   ><defs><path
     id="b8htxbe3ub"
     d="M0.021 0.251L4.876 0.251 4.876 1.328 0.021 1.328z"

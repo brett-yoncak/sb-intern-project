@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, inject, ref } from 'vue'
+import { inject, onMounted, ref } from 'vue'
 import HeaderBar from '../components/HeaderBar.vue';
 import SideBar from '../components/SideBar.vue';
 
@@ -51,41 +51,47 @@ onMounted(() => {
 
 <template>
   <div class="grid-container">
-    <div class="header">
+    <header class="header">
       <HeaderBar
         :all-sports="allSports"
         :name="allSports.name"
       />
-    </div>
-    <div class="sidebar">
+    </header>
+    <aside class="sidebar">
       <SideBar />
-    </div>
-    <div class="body">
-      body
-    </div>
+    </aside>
+    
+    <article class="content" />
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .grid-container {
-    display: grid;
-    grid-template-rows: 20% auto;
-    grid-auto-columns: 240px auto;
-    grid-template-areas:
-        '🟨 🟪'
-        '🟨 🟥'
-    ;
+  display: grid;
+  height: 100%;
+  grid-template-rows: 64px auto;
+  grid-auto-columns: 240px auto;
+  grid-template-areas:
+    'sidebar header'
+    'sidebar content'
+  ;
 }
 
 .header {
-    grid-area: 🟪;
+  grid-area: header;
+  overflow-x: scroll;
 }
 
 .sidebar {
-    grid-area: 🟨;
+  grid-area: sidebar;
+  overflow-y: scroll;
+  background-color: #182948;
 }
 
-.body {
-    grid-area: 🟥;
+.content {
+  grid-area: content;
+  overflow-y: scroll;
+  /* placeholder styles */
+  color: #ffff;
 }
 </style>
