@@ -1,5 +1,5 @@
 <script setup>
-import { inject, onMounted, ref } from 'vue'
+import { inject, onMounted, ref, shallowRef } from 'vue'
 import HeaderBar from '../components/HeaderBar.vue';
 import SideBar from '../components/SideBar.vue';
 import MainArea from '../components/MainArea.vue';
@@ -19,6 +19,7 @@ const getAllSports = () => {
     .then(response => {
       allSports.value = response.data
     })
+    console.log(allSports)
 }
 
 const getEvents = () => {
@@ -26,6 +27,8 @@ const getEvents = () => {
     .then(response => {
       events.value = response.data
     })
+
+      console.log(events)
 }
 
 const getBets = () => {
@@ -33,6 +36,8 @@ const getBets = () => {
     .then(response => {
       bets.value = response.data
     })
+
+  console.log(bets)
 }
 
 const getTeams = () => {
@@ -40,6 +45,8 @@ const getTeams = () => {
     .then(response => {
       teams.value = response.data
     })
+
+    console.log(teams)
 }
 
 const getSports = () => {
@@ -47,6 +54,8 @@ const getSports = () => {
     .then(response => {
       sports.value = response.data
     })
+
+    console.log(sports)
 }
 
 const logit = (el) => {
@@ -81,6 +90,7 @@ onMounted(() => {
         :sports="sports"
         :events="events"
         :teams="teams"
+        :bets="bets"
       />
     </article>  
   </div>
