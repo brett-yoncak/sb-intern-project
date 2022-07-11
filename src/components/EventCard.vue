@@ -1,12 +1,12 @@
 <script setup>
-const props = defineProps({ sport: { type: Object, required: true }, events: { type: Object, required: true }, teams: { type: Object, required: true }, bets: { type: Object, required: true } })
+const props = defineProps({ bets: { type: Object, required: true }, events: { type: Object, required: true }, sport: { type: Object, required: true }, teams: { type: Object, required: true } })
 
 const allEventIds = Object.values(props.sport.eventIds)
+const bets = JSON.parse(JSON.stringify(props.bets))
 const events = JSON.parse(JSON.stringify(props.events))
 const teams = JSON.parse(JSON.stringify(props.teams))
-const bets = JSON.parse(JSON.stringify(props.bets))
-let eventsForSport = events.filter(event => allEventIds.includes(event.id))
 
+let eventsForSport = events.filter(event => allEventIds.includes(event.id))
 
 //functions
 let getTeamNames = (event) => {
@@ -38,7 +38,7 @@ let getBets = (event) => {
   betIdData[2].lineage, 
   betIdData[3].lineage, 
   ]
-  logit(eventBetIds)
+
   return (lineage)
   }
 
@@ -51,7 +51,7 @@ const logit =  (whtevr) => {
 }
 
 //run
-logit(events)
+logit()
 </script>
 
 <template>
@@ -63,7 +63,10 @@ logit(events)
     >
       <article class="card">
         <div class="team-one">
-          {{ getTeamNames(event.participants)[0] }}
+          <div class="team-name">
+            {{ getTeamNames(event.participants)[0] }}
+          </div>
+          
           <div class="bets">
             {{ getBets(event.participants)[0] }}
             {{ getBets(event.participants)[1] }}
@@ -71,7 +74,10 @@ logit(events)
         </div>  
 
         <div class="team-two">
-          {{ getTeamNames(event.participants)[1] }}
+          <div class="team-name">
+            {{ getTeamNames(event.participants)[1] }}
+          </div>
+          
           <div class="bets">
             {{ getBets(event.participants)[2] }}
             {{ getBets(event.participants)[3] }}

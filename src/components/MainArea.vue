@@ -1,6 +1,6 @@
 <script setup>
 import EventCard from '../components/EventCard.vue';
-const props = defineProps({ sports: { type: Array, required: true }, events: { type: Array, required: true }, teams: { type: Array, required: true}, bets: { type: Array, required: true} } )
+const props = defineProps({ bets: { type: Array, required: true}, events: { type: Array, required: true }, sports: { type: Array, required: true }, teams: { type: Array, required: true},  } )
 
 </script>
 
