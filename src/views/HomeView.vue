@@ -18,7 +18,6 @@ const getAllSports = () => {
   axios.get('/all-sports')
     .then(response => {
       allSports.value = response.data
-      console.log(allSports)
     })
 }
 
@@ -26,7 +25,7 @@ const getEvents = () => {
   axios.get('/events')
     .then(response => {
       events.value = response.data
-      console.log(events)
+      console.log(events.value)
     })
 }
 
@@ -34,7 +33,7 @@ const getBets = () => {
   axios.get('/bets')
     .then(response => {
       bets.value = response.data
-      console.log(bets)
+      console.log(bets.value)
     })
 }
 
@@ -42,7 +41,8 @@ const getTeams = () => {
   axios.get('/teams')
     .then(response => {
       teams.value = response.data
-      console.log(teams)
+      console.log('teams')
+      console.log(teams.value)
     })
 }
 
@@ -50,12 +50,8 @@ const getSports = () => {
   axios.get('/sports')
     .then(response => {
       sports.value = response.data
-      console.log(sports)
+      console.log(sports.value)
     })
-}
-
-const logit = (whtevr) => {
-  console.log(whtevr)
 }
 
 // setup
