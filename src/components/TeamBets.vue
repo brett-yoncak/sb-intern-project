@@ -7,37 +7,39 @@ const props = defineProps({
     required: true
   },
   
-  team2id: {
+  teamid: {
     type: String,
-    default: '',    required: true
+    default: '', 
+    required: true
   },
 
-  team2bets: {
+  teambets: {
     type: Object,
     required: true
   },
 })
 
 const submit = (eventId, teamId, betId) => {
-  console.log(`Event ID: ${eventId}, Team ID: ${teamId}, Bet ID: ${betId}`)
+  const submission = {
+    event: eventId,
+    team: teamId,
+    bet: betId 
+  }
+  console.log(submission)
   alert('YOU DID IT!')
 }
 </script>
 
 <template>
-  <div class="button-wrapper">
-    <button
+  <div
+    v-for="bet in props.teambets"
+    :key="bet.id"
+  >
+    <button 
       class="lineage"
-      @click="submit(props.eventid, props?.team2id, props.team2bets?.spread?.id)"
+      @click="submit(props.eventid, props?.teamid, props.teambets?.spread?.id)"
     >
-      {{ props.team2bets?.spread?.lineage }}
-    </button>
-
-    <button
-      class="lineage"
-      @click="submit(props.eventid, props?.team2id, props.team2bets?.ml?.id)"
-    >
-      {{ props.team2bets?.ml?.lineage }}
+      {{ bet.lineage }}
     </button>
   </div>
 </template>
@@ -46,15 +48,10 @@ const submit = (eventId, teamId, betId) => {
 button {
   cursor: pointer;
   border: none;
+
   &:hover {
     border: 1px solid #1555d0
   }
-}
-
-.button-wrapper {
-  display: flex;
-  width: 100%;
-  column-gap: 1em;
 }
 
 .lineage {
@@ -63,6 +60,7 @@ button {
   justify-content: center;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%), 0 2px 1px -1px rgb(0 0 0 / 12%), 0 1px 1px 0 rgb(0 0 0 / 14%);
   background: white;
+  color: #111111;
   width: 62px;
   height: 62px;
 }

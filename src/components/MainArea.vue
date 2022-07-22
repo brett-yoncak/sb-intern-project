@@ -34,84 +34,42 @@ const sportIcons = [
   { name: 'nfl', comp: IconFootball },
   { name: 'nhl', comp: IconHockey },
  ] 
-/* Need:
-team1:
-team2: 'Name'
-team1ML: '+123'
-team2ML: '+123'
-team1Spread: '+123'
-team2Spread:  
+
+/*
+sportsWithEventsComputed
+--> Creates an object for each event in the sport.
+--> Object contains Event ID, Team info, and Bet info to pass to EventCard.
 */
-
-// [{
-//   name: '',
-//   events: [{}]
-// }]
-
-// let teamFinder = (eventId) => {
-//   let theEvent = props.events.find(event => event.id === eventId)
-//   let theTeams = []
-  
-//   theEvent.participants.forEach(participant => {
-//     let team = props.teams.find(team => team.id === participant.id)
-//     theTeams.push(team.name)
-//   })
-//   team1.value = theTeams[0]
-//   team2.value = theTeams[1]
-//   return (theTeams)
-// }
-
- 
-
-/* First attempt --> need to remove 'for' loop
-const sportsWithEventsComputed = computed(() => props.sports.map(sport => {
-  const theSport = {}
-  theSport['name'] = sport.name
-  theSport['events'] = props.events.filter(propEvent => {
-    for(let i = 0; i < sport.eventIds.length; i++){
-      if(propEvent.id == sport.eventIds[i]){
-        return propEvent
-      }
-    }
-  })
-  sportsWithEvents.push(theSport)
-},
-console.log(sportsWithEvents),
-))
-*/
-
 const sportsWithEventsComputed = ref(computed(() => props.sports.map(sport => {
-  const theSport = {}
-  theSport.name = sport.key
-  theSport.icon = sportIcons.find(icon => icon.name === sport.key)
-  theSport.events = sport.eventIds.map(id => {
-    return props.events.reduce((events, event) => {
-      if(event.id === id){
-        events.id = id
-        events.team1 = props.teams.find(team => team.id === event.participants[0]?.id)
-        events.team1 = { 
-          id: events.team1?.id,
-          name: events.team1?.name,
-          bets: { 
-            ml: props.bets.find(bet => bet.id === event.participants[0]?.betIds[0]),
-            spread: props.bets.find(bet => bet.id === event.participants[0]?.betIds[1])
-          }
-        }
-        events.team2 = props.teams.find(team => team.id === event.participants[1]?.id)
-        events.team2 = {
-          id: events.team2?.id,
-          name: events.team2?.name,
-          bets: {
-            ml: props.bets.find(bet => bet.id === event.participants[1]?.betIds[0]),
-            spread: props.bets.find(bet => bet.id === event.participants[1]?.betIds[1])
-          }
+  const theSport = {
+    name: sport.key,
+    icon: sportIcons.find(icon => icon.name === sport.key),
+    events: sport.eventIds.map(id => {
+      const event = props.events.find(eventProp => eventProp.id === id)
+
+      event.teams = {
+        team1: props.teams.find(team => team.id === event.participants[0]?.id),
+        team2: props.teams.find(team => team.id === event.participants[1]?.id)
+      }
+      
+      event.teambets = {
+        team1: {
+          spread: props.bets.find(bet => bet.id === event.participants[0].betIds[0]),
+          ml: props.bets.find(bet => bet.id === event.participants[0].betIds[1])
+        },
+        team2: {
+          spread: props.bets.find(bet => event.participants[1].betIds[0] === bet.id),
+          ml: props.bets.find(bet => event.participants[1].betIds[1] === bet.id)
         }
       }
-    return events
-    },{})
-  })
-  return theSport
-})))
+      return event
+      },{})
+    }
+    return theSport
+    }),
+))
+
+console.log(sportsWithEventsComputed)
 </script>
 
 <template>

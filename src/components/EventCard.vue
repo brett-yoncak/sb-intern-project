@@ -1,7 +1,6 @@
 <script setup>
 import { defineProps } from 'vue';
-import Team1Bets from './Team1Bets.vue'
-import Team2Bets from './Team2Bets.vue'
+import TeamBets from './TeamBets.vue'
 
 const props = defineProps({ 
   sport: {
@@ -14,7 +13,19 @@ const capitalize = (name) => {
   if(typeof name !== 'string'){
     return ''
   }
-  return name.charAt(0).toUpperCase() + name.slice(1)
+  return `${name.charAt(0).toUpperCase()}${name.slice(1)}`
+}
+
+/* vs
+--> converts both team's names to uppercase
+*/  
+const vs = (team1, team2) => {
+  const team1Upper = team1?.name?.toUpperCase()
+  const team2Upper = team2?.name?.toUpperCase()
+    if(typeof team1 !== 'object' && typeof team2 !== 'object'){
+    return ''
+  }
+  return `${team1Upper} vs ${team2Upper}`
 }
 </script>
 
@@ -27,7 +38,7 @@ const capitalize = (name) => {
     >
       <header class="header">
         <h2 class="vs">
-          {{ event.team1?.name?.toUpperCase() + ' ' + 'vs' + ' ' + event.team2?.name?.toUpperCase() }}
+          {{ vs(event.teams?.team1, event.teams?.team2) }}
         </h2>
       </header>
       
@@ -35,36 +46,32 @@ const capitalize = (name) => {
         <div class="row">
           <div class="team">
             <h3 class="team-name">
-              {{ capitalize(event.team1?.name) }}
+              {{ capitalize(event.teams?.team1?.name) }}
             </h3>
           </div>
 
           <div class="bets">  
-            <div class="lineage">
-              <Team1Bets 
-                :eventid="event.id"
-                :team1id=" event.team1?.id "
-                :team1bets="event.team1?.bets"
-              />
-            </div>
+            <TeamBets 
+              :eventid="event.id"
+              :teamid="event.teams?.team1?.id"
+              :teambets="event.teambets?.team1"
+            />
           </div>
         </div>
 
         <div class="row">
           <div class="team">
             <h3 class="team-name">
-              {{ capitalize(event.team2?.name) }}
+              {{ capitalize(event.teams?.team2?.name) }}
             </h3>
           </div>
 
           <div class="bets">
-            <div class="lineage">
-              <Team2Bets 
-                :eventid="event.id"
-                :team2id="event.team2?.id"
-                :team2bets="event.team2?.bets"
-              />
-            </div>
+            <TeamBets 
+              :eventid="event.id"
+              :teamid="event.teams?.team2?.id"
+              :teambets="event.teambets?.team2"
+            />
           </div>
         </div>
       </article>
@@ -112,7 +119,7 @@ const capitalize = (name) => {
 .bets {
   grid-area: bets;
   display: flex;
-  justify-content: flex-end;
+  column-gap: 1em;
 }
 
 .lineage {
@@ -124,6 +131,8 @@ const capitalize = (name) => {
   grid-template-areas:
     'teams bets'
   ;
+  grid-auto-columns: 50% 50%;
+
   width: 100%;
 }
 .header {
@@ -133,7 +142,7 @@ const capitalize = (name) => {
   border-bottom: 1px solid #b8b7b6;
 }
 
-.vs{
+.vs {
   color: #2b4564;
   font-weight: 400;
   font-size: 12px;
