@@ -104,13 +104,13 @@ console.log(sportsWithEventsComputed)
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
   background: white;
+  padding: 3em 0 0 3em;
 }
 
 .header {
   display: flex;
   align-items: center;
   color: #111111;
-  padding-top: 3em
 }
 
 .icon {
@@ -118,11 +118,8 @@ console.log(sportsWithEventsComputed)
   min-height: 16px;
 }
 
-.events {
-  padding-left: 2em;
-}
-
 .event-card {
   padding-top: 1em;
+  padding-bottom: 3rem;
 }
 </style>
