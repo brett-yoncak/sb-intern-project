@@ -19,7 +19,12 @@ const props = defineProps({
 })
 
 const submit = (eventId, teamId, betId) => {
-  console.log(`Event ID: ${eventId}, Team ID: ${teamId}, Bet ID: ${betId}`)
+  const submission = {
+    event: eventId,
+    team: teamId,
+    bet: betId 
+  }
+  console.log(submission)
   alert('YOU DID IT!')
 }
 </script>
