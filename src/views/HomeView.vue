@@ -71,6 +71,7 @@ onMounted(() => {
         :name="allSports.name"
       />
     </header>
+    
     <aside class="sidebar">
       <SideBar />
     </aside>

@@ -16,8 +16,6 @@ const capitalize = (name) => {
   }
   return name.charAt(0).toUpperCase() + name.slice(1)
 }
-
-
 </script>
 
 <template>
@@ -40,6 +38,7 @@ const capitalize = (name) => {
               {{ capitalize(event.team1?.name) }}
             </h3>
           </div>
+
           <div class="bets">  
             <div class="lineage">
               <Team1Bets 
@@ -50,12 +49,14 @@ const capitalize = (name) => {
             </div>
           </div>
         </div>
+
         <div class="row">
           <div class="team">
             <h3 class="team-name">
               {{ capitalize(event.team2?.name) }}
             </h3>
           </div>
+
           <div class="bets">
             <div class="lineage">
               <Team2Bets 
@@ -99,13 +100,13 @@ const capitalize = (name) => {
 }
 
 .team {
-display: flex;
-grid-area: teams;
-width: 100%
+  display: flex;
+  grid-area: teams;
+  width: 100%
 }
 .team-name {
-font-size: 16px;
-color: #111111;
+  font-size: 16px;
+  color: #111111;
 }
 
 .bets {
@@ -119,11 +120,11 @@ color: #111111;
 }
 
 .row {
-display: grid;
+  display: grid;
   grid-template-areas:
     'teams bets'
   ;
-width: 100%;
+  width: 100%;
 }
 .header {
   border-radius: 8px 8px 0 0;

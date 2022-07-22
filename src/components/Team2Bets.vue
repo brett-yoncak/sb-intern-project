@@ -32,6 +32,7 @@ const submit = (eventId, teamId, betId) => {
     >
       {{ props.team2bets?.spread?.lineage }}
     </button>
+
     <button
       class="lineage"
       @click="submit(props.eventid, props?.team2id, props.team2bets?.ml?.id)"
@@ -45,7 +46,6 @@ const submit = (eventId, teamId, betId) => {
 button {
   cursor: pointer;
   border: none;
-
   &:hover {
     border: 1px solid #1555d0
   }
