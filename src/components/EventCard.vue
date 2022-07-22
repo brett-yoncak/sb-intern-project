@@ -1,5 +1,7 @@
 <script setup>
 import { defineProps } from 'vue';
+import Team1Bets from './Team1Bets.vue'
+import Team2Bets from './Team2Bets.vue'
 
 const props = defineProps({ 
   sport: {
@@ -14,6 +16,8 @@ const capitalize = (name) => {
   }
   return name.charAt(0).toUpperCase() + name.slice(1)
 }
+
+
 </script>
 
 <template>
@@ -25,57 +29,54 @@ const capitalize = (name) => {
     >
       <header class="header">
         <h2 class="vs">
-          {{ capitalize(event.team1) + ' ' + 'vs' + ' ' + capitalize(event.team2) }}
+          {{ event.team1?.name?.toUpperCase() + ' ' + 'vs' + ' ' + event.team2?.name?.toUpperCase() }}
         </h2>
       </header>
       
       <article class="article">
-        <div class="info">
+        <div class="row">
           <div class="team">
             <h3 class="team-name">
-              {{ capitalize(event.team1) }}
-            </h3>  
-          </div>  
-          
-          <div class="bets">
-            <button class="lineage">
-              {{ event.team1Spread }}
-            </button>
-            <button class="lineage">
-              {{ event.team1ML }}
-            </button>
-          </div>
-        </div>
-
-        <div class="info">
-          <div class="team">
-            <h3 class="team-name">
-              {{ capitalize(event.team2) }}
+              {{ capitalize(event.team1?.name) }}
             </h3>
           </div>
-          
-          <div class="bets">
-            <button class="lineage">
-              {{ event.team2Spread }}
-            </button>
-            <button class="lineage">
-              {{ event.team2ML }}
-            </button>
+          <div class="bets">  
+            <div class="lineage">
+              <Team1Bets 
+                :eventid="event.id"
+                :team1id=" event.team1?.id "
+                :team1bets="event.team1?.bets"
+              />
+            </div>
           </div>
-        </div> 
+        </div>
+        <div class="row">
+          <div class="team">
+            <h3 class="team-name">
+              {{ capitalize(event.team2?.name) }}
+            </h3>
+          </div>
+          <div class="bets">
+            <div class="lineage">
+              <Team2Bets 
+                :eventid="event.id"
+                :team2id="event.team2?.id"
+                :team2bets="event.team2?.bets"
+              />
+            </div>
+          </div>
+        </div>
       </article>
     </div>
   </div>
 </template>
 
-<style scoped>
-button {
-  cursor: pointer;
-}
+<style lang="scss" scoped>
 .container {
   display: flex;
   overflow-y: scroll;
   column-gap: 2em;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .card { 
@@ -84,53 +85,58 @@ button {
   border-radius: 8px;
   min-width: 400px;
   max-width: 400px;
-  background: white;
+  background: #e7e8e8;
   color: black;
+  border: 1px solid #e7e8e8;
 }
 
 .article {
   display: flex;
   flex-direction: column;
-  row-gap: 2em;
-  padding: 3em;
-  padding-left: 2em;
-  padding-right: 2em;
-}
-.team-name {
-color: black;
-}
-
-.info {
-  display: flex;
-  align-items: center;
-}
-
-.bets {
-  display: flex;
-  column-gap: 3em;
-}
-
-.lineage {
-  display: flex;
-  align-items: center;
   justify-content: center;
-  background: gray;
-  width: 62px;
-  height: 62px;
+  row-gap: 1em;
+  padding: 2em;
 }
 
 .team {
-  width: 100%;
+display: flex;
+grid-area: teams;
+width: 100%
+}
+.team-name {
+font-size: 16px;
+color: #111111;
+}
+
+.bets {
+  grid-area: bets;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.lineage {
+  color: #111111;
+}
+
+.row {
+display: grid;
+  grid-template-areas:
+    'teams bets'
+  ;
+width: 100%;
 }
 .header {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-radius: 8px 8px 0 0;
   width: 100%;
-  background: gray;
+  background: white;
+  border-bottom: 1px solid #b8b7b6;
 }
 
 .vs{
-  font-size: medium;
+  color: #2b4564;
+  font-weight: 400;
+  font-size: 12px;
   margin-left: .5em;
+  letter-spacing: 1.2px;
 }
 </style>

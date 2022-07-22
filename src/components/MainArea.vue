@@ -1,5 +1,9 @@
 <script setup>
 import { ref, computed, defineProps } from 'vue';
+import IconBaseball from '../components/icons/IconBaseballDark.vue';
+import IconBasketball from '../components/icons/IconBasketballDark.vue';
+import IconFootball from '../components/icons/IconFootball.vue';
+import IconHockey from '../components/icons/IconHockeyDark.vue';
 import EventCard from '../components/EventCard.vue';
 
 const props = defineProps({
@@ -24,6 +28,12 @@ const props = defineProps({
   } 
 })
 
+const sportIcons = [ 
+  { name: 'mlb', comp: IconBaseball },
+  { name: 'nba', comp: IconBasketball },
+  { name: 'nfl', comp: IconFootball },
+  { name: 'nhl', comp: IconHockey },
+ ] 
 /* Need:
 team1:
 team2: 'Name'
@@ -72,33 +82,36 @@ console.log(sportsWithEvents),
 
 const sportsWithEventsComputed = ref(computed(() => props.sports.map(sport => {
   const theSport = {}
-  theSport.name = sport.name
+  theSport.name = sport.key
+  theSport.icon = sportIcons.find(icon => icon.name === sport.key)
   theSport.events = sport.eventIds.map(id => {
     return props.events.reduce((events, event) => {
       if(event.id === id){
         events.id = id
         events.team1 = props.teams.find(team => team.id === event.participants[0]?.id)
-        events.team1 = events.team1?.name
-        events.team1ML = props.bets.find(bet => bet.id === event.participants[0]?.betIds[0])
-        events.team1ML = events.team1ML?.lineage
-        events.team1Spread = props.bets.find(bet => bet.id === event.participants[0]?.betIds[1])
-        events.team1Spread = events.team1Spread?.lineage
+        events.team1 = { 
+          id: events.team1?.id,
+          name: events.team1?.name,
+          bets: { 
+            ml: props.bets.find(bet => bet.id === event.participants[0]?.betIds[0]),
+            spread: props.bets.find(bet => bet.id === event.participants[0]?.betIds[1])
+          }
+        }
         events.team2 = props.teams.find(team => team.id === event.participants[1]?.id)
-        events.team2 = events.team2?.name
-        events.team2ML = props.bets.find(bet => bet.id === event.participants[1]?.betIds[0])
-        events.team2ML = events.team2ML?.lineage
-        events.team2Spread = props.bets.find(bet => bet.id === event.participants[1]?.betIds[1])
-        events.team2Spread = events.team2Spread?.lineage
+        events.team2 = {
+          id: events.team2?.id,
+          name: events.team2?.name,
+          bets: {
+            ml: props.bets.find(bet => bet.id === event.participants[1]?.betIds[0]),
+            spread: props.bets.find(bet => bet.id === event.participants[1]?.betIds[1])
+          }
+        }
       }
     return events
     },{})
   })
   return theSport
 })))
-
-console.log(sportsWithEventsComputed)
-
-
 </script>
 
 <template>
@@ -109,14 +122,49 @@ console.log(sportsWithEventsComputed)
       class="events"
     >
       <header>
-        <h1> {{ sport.name }} </h1>
+        <span class="header">
+          <component
+            :is="sport.icon.comp"
+            class="icon"
+          />
+            
+          {{ sport.name.toUpperCase() }}
+        </span>
       </header>
 
-      <article>        
+      <article class="event-card">        
         <EventCard
-          :sport="sport.events"
+          :sport="sport?.events"
         />
       </article>
     </div>
   </article>
 </template>
+
+<style scoped>
+.sports-wrapper {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  background: white;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  color: #111111;
+  padding-top: 3em
+}
+
+.icon {
+  padding-right: .5em;
+  min-height: 16px;
+}
+
+.events {
+  padding-left: 2em;
+}
+
+.event-card {
+  padding-top: 1em;
+}
+</style>
