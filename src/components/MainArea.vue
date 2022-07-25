@@ -83,8 +83,7 @@ console.log(sportsWithEventsComputed)
         <span class="header">
           <component
             :is="sport.icon.comp"
-            :class="{ 'dark-icon' : sport.icon.name != 'nfl' }"
-            class="icon"
+            :class="['icon', { 'dark-icon' : sport.icon.name != 'nfl' }]"
           />
             
           {{ sport.name.toUpperCase() }}
