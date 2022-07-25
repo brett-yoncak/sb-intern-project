@@ -83,7 +83,7 @@ const vs = (team1, team2) => {
 .container {
   display: flex;
   overflow-y: scroll;
-  column-gap: 2em;
+  column-gap: 32px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -102,8 +102,8 @@ const vs = (team1, team2) => {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  row-gap: 1em;
-  padding: 2em;
+  row-gap: 16px;
+  padding: 32px;
 }
 
 .team {
@@ -119,7 +119,8 @@ const vs = (team1, team2) => {
 .bets {
   grid-area: bets;
   display: flex;
-  column-gap: 1em;
+  column-gap: 16px
+  ;
 }
 
 .lineage {
@@ -146,7 +147,7 @@ const vs = (team1, team2) => {
   color: #2b4564;
   font-weight: 400;
   font-size: 12px;
-  margin-left: .5em;
+  margin-left: 8px;
   letter-spacing: 1.2px;
 }
 </style>
