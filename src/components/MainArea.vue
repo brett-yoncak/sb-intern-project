@@ -1,9 +1,9 @@
 <script setup>
 import { ref, computed, defineProps } from 'vue';
-import IconBaseball from '../components/icons/IconBaseballDark.vue';
-import IconBasketball from '../components/icons/IconBasketballDark.vue';
+import IconBaseball from '../components/icons/IconBaseball.vue';
+import IconBasketball from '../components/icons/IconBasketball.vue';
 import IconFootball from '../components/icons/IconFootball.vue';
-import IconHockey from '../components/icons/IconHockeyDark.vue';
+import IconHockey from '../components/icons/IconHockey.vue';
 import EventCard from '../components/EventCard.vue';
 
 const props = defineProps({
@@ -83,6 +83,7 @@ console.log(sportsWithEventsComputed)
         <span class="header">
           <component
             :is="sport.icon.comp"
+            :class="{ 'dark-icon' : sport.icon.name != 'nfl' }"
             class="icon"
           />
             
@@ -116,6 +117,10 @@ console.log(sportsWithEventsComputed)
 .icon {
   padding-right: 8px;
   min-height: 16px;
+}
+
+.dark-icon {
+  fill: #000000;
 }
 
 .event-card {
