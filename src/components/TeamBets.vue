@@ -1,43 +1,51 @@
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, inject } from 'vue';
+
+const axios = inject('axios')
+
 
 const props = defineProps({
-  eventid: {
+  eventId: {
     type: String,
     required: true
   },
   
-  teamid: {
+  teamId: {
     type: String,
     default: '', 
     required: true
   },
 
-  teambets: {
+  teamBets: {
     type: Object,
     required: true
   },
 })
 
-const submit = (eventId, teamId, betId) => {
-  const submission = {
-    event: eventId,
-    team: teamId,
-    bet: betId 
-  }
-  console.log(submission)
-  alert('YOU DID IT!')
+const postBet = (id) => {  
+  axios
+  .post('/submit', {
+    eventId: props.eventId,
+    betId: id,
+    teamId: props.teamId
+  })
+  .then( response => {
+    console.log(response.data)
+  })
+  .catch(error => {
+    console.log(error)
+  });
 }
 </script>
 
 <template>
   <div
-    v-for="bet in props.teambets"
+    v-for="bet in teamBets"
     :key="bet.id"
   >
-    <button 
+    <button
       class="lineage"
-      @click="submit(props.eventid, props?.teamid, props.teambets?.spread?.id)"
+      @click="postBet(`${bet.id}`)"
     >
       {{ bet.lineage }}
     </button>

@@ -8,10 +8,10 @@ const axios = inject('axios')
 
 // data
 const allSports = ref([]);
-const events = ref([]);
-const bets = ref([]);
-const teams = ref([]);
 const sports = ref([]);
+const events = ref([]);
+const teams = ref([]);
+const bets = ref([]);
 
 // functions
 const getAllSports = () => {
@@ -21,12 +21,26 @@ const getAllSports = () => {
     })
 }
 
+  const getSports = () => {
+    axios.get('/sports')
+      .then(response => {
+        sports.value = response.data
+      })
+  }
+
 const getEvents = () => {
   axios.get('/events')
     .then(response => {
       events.value = response.data
     })
 }
+
+  const getTeams = () => {
+    axios.get('/teams')
+      .then(response => {
+        teams.value = response.data
+      })
+  }
 
 const getBets = () => {
   axios.get('/bets')
@@ -35,27 +49,13 @@ const getBets = () => {
     })
 }
 
-const getTeams = () => {
-  axios.get('/teams')
-    .then(response => {
-      teams.value = response.data
-    })
-}
-
-const getSports = () => {
-  axios.get('/sports')
-    .then(response => {
-      sports.value = response.data
-    })
-}
-
 // setup
 onMounted(() => {
-    getAllSports() 
-    getBets()
-    getEvents()
-    getSports()
-    getTeams()
+  getAllSports() 
+  getSports()
+  getEvents()
+  getTeams()
+  getBets()
 });
 </script>
 
@@ -74,6 +74,7 @@ onMounted(() => {
     
     <article class="content">
       <MainArea
+        v-if="sports.length && events.length && teams.length && bets.length"
         :sports="sports"
         :events="events"
         :teams="teams"

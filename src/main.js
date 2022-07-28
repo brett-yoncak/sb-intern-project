@@ -7,10 +7,16 @@ import VueAxios from 'vue-axios';
 
 const app = createApp(App);
 
+
 app.use(router);
 app.use(VueAxios, { axios: axios.create({
-  baseURL: 'http://localhost:3008/'
+  baseURL: 'http://localhost:3008/',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+ }
+ 
 })})
+
 
 app.provide('axios', app.config.globalProperties.axios)
 
