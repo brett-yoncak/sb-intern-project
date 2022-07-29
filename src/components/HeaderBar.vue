@@ -1,43 +1,32 @@
 <script setup>
-import { ref } from 'vue';
-import IconBaseball from '../components/icons/IconBaseball.vue';
-import IconBasketball from '../components/icons/IconBasketball.vue';
-import IconFootball from '../components/icons/IconFootball.vue';
-import IconHockey from '../components/icons/IconHockey.vue';
+import IconBaseball from '@/components/icons/IconBaseball.vue';
+import IconBasketball from '@/components/icons/IconBasketball.vue';
+import IconFootball from '@/components/icons/IconFootball.vue';
+import IconHockey from '@/components/icons/IconHockey.vue';
 
-const props = defineProps({ allSports: { type: Array, required: true } })
+const sports = [  
+  { name: 'MLB', comp: IconBaseball },
+  { name: 'NBA', comp: IconBasketball },
+  { name: 'NFL', comp: IconFootball },
+  { name: 'NHL', comp: IconHockey },
+]
 </script>
 
 <template>
   <div class="container">
     <nav class="sports-wrapper">
       <button
-        v-for="sport in allSports" 
-        :key="sport.key"
+        v-for="sport in sports" 
+        :key="sport.name"
         class="sport"
       >
-        <IconBaseball
-          v-if="sport.key === 'mlb'"
+        <component
+          :is="sport.comp"
           class="icon"
         />
-      
-        <IconHockey
-          v-if="sport.key === 'nhl'" 
-          class="icon"
-        />
-      
-        <IconBasketball
-          v-if="sport.key === 'nba'" 
-          class="icon"
-        />
-      
-        <IconFootball
-          v-if="sport.key === 'nfl'" 
-          class="icon"
-        />
-      
+
         <span class="button-text">
-          {{ sport.key.toUpperCase() }}
+          {{ sport.name }}
         </span>
       </button>
     </nav>

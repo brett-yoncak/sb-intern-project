@@ -19,8 +19,8 @@ const props = defineProps({ button: { type: Object, required: true } })
 <style lang="scss" scoped>
 button {
   background-color: transparent;
-  color: rgb(160, 160, 160);
-  fill:rgb(160, 160, 160);
+  color: #a0a0a0;
+  fill:#a0a0a0;
   cursor: pointer;
   border: none;
     
