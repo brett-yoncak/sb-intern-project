@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps, inject } from 'vue';
+
 const axios = inject('axios')
 
 const props = defineProps({
