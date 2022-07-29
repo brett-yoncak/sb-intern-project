@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps } from 'vue';
-import Card from './Card.vue'
+import EventCard from '@/components/EventCard.vue'
 
 const props = defineProps({ 
   events: {
@@ -16,7 +16,7 @@ const props = defineProps({
       v-for="event in events"
       :key="event.id"
     >
-      <Card
+      <EventCard
         :event-id="event.id"
         :teams="event.teams"
         :bets="event.teambets"

@@ -1,8 +1,6 @@
 <script setup>
 import { defineProps, inject } from 'vue';
-
 const axios = inject('axios')
-
 
 const props = defineProps({
   eventId: {
@@ -12,7 +10,6 @@ const props = defineProps({
   
   teamId: {
     type: String,
-    default: '', 
     required: true
   },
 
@@ -22,19 +19,19 @@ const props = defineProps({
   },
 })
 
-const postBet = (id) => {  
-  axios
+const postBet = (id) => {
+axios
   .post('/submit', {
-    eventId: props.eventId,
-    betId: id,
-    teamId: props.teamId
+    'eventId': `${props.eventId}`,
+    'betId': `${id}`,
+    'teamId': `${props.teamId}`
   })
-  .then( response => {
-    console.log(response.data)
+  .then(response => {
+    console.log(response)
   })
   .catch(error => {
     console.log(error)
-  });
+  })
 }
 </script>
 
@@ -45,7 +42,7 @@ const postBet = (id) => {
   >
     <button
       class="lineage"
-      @click="postBet(`${bet.id}`)"
+      @click="postBet(bet.id)"
     >
       {{ bet.lineage }}
     </button>

@@ -62,10 +62,7 @@ onMounted(() => {
 <template>
   <div class="grid-container">
     <header class="header">
-      <HeaderBar
-        :all-sports="allSports"
-        :name="allSports.name"
-      />
+      <HeaderBar />
     </header>
     
     <aside class="sidebar">

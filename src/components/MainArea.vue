@@ -1,10 +1,10 @@
 <script setup>
 import { computed, defineProps } from 'vue';
-import IconBaseball from '../components/icons/IconBaseball.vue';
-import IconBasketball from '../components/icons/IconBasketball.vue';
-import IconFootball from '../components/icons/IconFootball.vue';
-import IconHockey from '../components/icons/IconHockey.vue';
-import EventRow from './EventRow.vue';
+import IconBaseball from '@/components/icons/IconBaseball.vue';
+import IconBasketball from '@/components/icons/IconBasketball.vue';
+import IconFootball from '@/components/icons/IconFootball.vue';
+import IconHockey from '@/components/icons/IconHockey.vue';
+import EventRow from '@/components/EventRow.vue';
 
 const props = defineProps({
   sports: { 
@@ -26,9 +26,9 @@ const props = defineProps({
     type: Object, 
     required: true 
   }
-    
 })
 
+//icons to add into SportsWithEvents (line 50)
 const sportIcons = [ 
   { name: 'mlb', comp: IconBaseball },
   { name: 'nba', comp: IconBasketball },
@@ -36,6 +36,7 @@ const sportIcons = [
   { name: 'nhl', comp: IconHockey },
  ] 
 
+//for capitalizing team names in SportsWithEvents
 const capitalize = (name) => {
   if(typeof name !== 'string'){
     return ''
@@ -43,11 +44,11 @@ const capitalize = (name) => {
   return `${name.charAt(0).toUpperCase()}${name.slice(1)}`
 }
 /*
-sportsWithEventsComputed
+sportsWithEvents
 * Creates an object for each event in the sport.
 * Object contains Event ID, Team info, and Bet info to pass to EventCard.
 */
-const sportsWithEventsComputed = computed(() => props?.sports.map(sport => {
+const sportsWithEvents = computed(() => props.sports.map(sport => {
   const theSport = {
     name: sport.key,
     icon: sportIcons.find(icon => icon.name === sport.key),
@@ -64,12 +65,12 @@ const sportsWithEventsComputed = computed(() => props?.sports.map(sport => {
           id: team1Obj?.id,
           vs: team1Obj?.name?.toUpperCase(),
           name: capitalize(team1Obj?.name)
-        } || {},
+        },
         team2: {
           id: team2Obj?.id,
           vs: team2Obj?.name?.toUpperCase(),
           name: capitalize(team2Obj?.name)
-        } || {},
+        },
       }
 
       //setting bets for each team
@@ -77,11 +78,11 @@ const sportsWithEventsComputed = computed(() => props?.sports.map(sport => {
         team1: {
           spread: props.bets.find(bet => bet.id === event?.participants[0]?.betIds[0] || ''),
           ml: props.bets.find(bet => bet.id === event?.participants[0]?.betIds[1] || '')
-        } || {},
+        },
         team2: {
           spread: props.bets.find(bet => event?.participants[1]?.betIds[0] === bet.id) || '',
           ml: props.bets.find(bet => event?.participants[1]?.betIds[1] === bet.id) || ''
-        } || {}
+        }
       }
       return event
       }, {})
@@ -94,7 +95,7 @@ const sportsWithEventsComputed = computed(() => props?.sports.map(sport => {
 <template>
   <article class="sports-wrapper">
     <div
-      v-for="sport in sportsWithEventsComputed"
+      v-for="sport in sportsWithEvents"
       :key="sport.name"
       class="events"
     >

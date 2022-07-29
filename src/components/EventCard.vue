@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps } from 'vue';
-import TeamBets from './TeamBets.vue'
+import TeamBets from '@/components/TeamBets.vue'
 
 const props = defineProps({ 
   eventId: {
